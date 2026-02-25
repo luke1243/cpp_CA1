@@ -170,13 +170,36 @@ void MyImage::save()
 void MyImage::filterRed()
 {
    cout << "Filter Red" << endl;
-
+    for (int y = 0; y < this->size.y; y++) {
+        for (int x = 0; x < this->size.x; x++) {
+            int pix = (y*this->size.x) + x;
+            this->pixels[pix].r = this->pixels[pix].r;
+            this->pixels[pix].g = 0;
+            this->pixels[pix].b = 0;
+        }
+    }
 }
 void MyImage::filterGreen() {
     cout << "Filter Green" << endl;
+    for (int y = 0; y < this->size.y; y++) {
+        for (int x = 0; x < this->size.x; x++) {
+            int pix = (y*this->size.x) + x;
+            this->pixels[pix].r = 0;
+            this->pixels[pix].g = this->pixels[pix].g;
+            this->pixels[pix].b = 0;
+        }
+    }
 }
 void MyImage::filterBlue() {
     cout << "Filter Blue" << endl;
+    for (int y = 0; y < this->size.y; y++) {
+        for (int x = 0; x < this->size.x; x++) {
+            int pix = (y*this->size.x) + x;
+            this->pixels[pix].r = 0;
+            this->pixels[pix].g = 0;
+            this->pixels[pix].b = this->pixels[pix].b;
+        }
+    }
 }
 
 void MyImage::greyScale() {
