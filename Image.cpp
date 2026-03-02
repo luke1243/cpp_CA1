@@ -207,32 +207,34 @@ void MyImage::greyScale() {
     for (int y = 0; y < this->size.y; y++) {
         for (int x = 0; x < this->size.x; x++) {
             int pix = (y*this->size.x) + x;
-            this->pixels[pix].r = this->pixels[pix].r;
-            this->pixels[pix].g = this->pixels[pix].g;
-            this->pixels[pix].b = this->pixels[pix].b;
+            unsigned char grey = ((unsigned char)this->pixels[pix].r + (unsigned char)this->pixels[pix].g + (unsigned char)this->pixels[pix].b) / 3;
+            this->pixels[pix].r = grey;
+            this->pixels[pix].g = grey;
+            this->pixels[pix].b = grey;
         }
     }
 }
 
 void MyImage::flipHorizontal() {
     cout << "Flip Horizontal" << endl;
+    int width = (int)this->size.x;
     for (int y = 0; y < this->size.y; y++) {
-        for (int x = 0; x < this->size.x; x++) {
-            int pix = (y*this->size.x) + x;
-            this->pixels[pix].r = this->pixels[pix].r;
-            this->pixels[pix].g = this->pixels[pix].g;
-            this->pixels[pix].b = this->pixels[pix].b;
+        for (int x = 0; x < width / 2; x++) {
+            int leftPix = (y * width) + x;
+            int rightPix = (y * width) + (width - 1 - x);
+            swap(this->pixels[leftPix], this->pixels[rightPix]);
         }
     }
 }
 void MyImage::flipVertical() {
     cout << "Flip Vertical" << endl;
-    for (int y = 0; y < this->size.y; y++) {
-        for (int x = 0; x < this->size.x; x++) {
-            int pix = (y*this->size.x) + x;
-            this->pixels[pix].r = this->pixels[pix].r;
-            this->pixels[pix].g = this->pixels[pix].g;
-            this->pixels[pix].b = this->pixels[pix].b;
+    int width = (int)this->size.x;
+    int height = (int)this->size.y;
+    for (int y = 0; y < height / 2; y++) {
+        for (int x = 0; x < width; x++) {
+            int topPix = (y * width) + x;
+            int bottomPix = ((height - 1 - y) * width) + x;
+            swap(this->pixels[topPix], this->pixels[bottomPix]);
         }
     }
 }
@@ -245,6 +247,3 @@ void MyImage::advancedFeature2() {
 void MyImage::advancedFeature3() {
     cout << "Advanced Feature 3" << endl;
 }
-
-
-
