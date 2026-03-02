@@ -238,7 +238,7 @@ void MyImage::flipVertical() {
         }
     }
 }
-void MyImage::rotate90() {
+void MyImage::advancedFeature1() {
     cout << "Rotate 90" << endl;
     int oldW = (int)this->size.x;
     int oldH = (int)this->size.y;
@@ -256,9 +256,9 @@ void MyImage::rotate90() {
     this->pixels = rotatedPixels;
     this->size = {(float)oldH, (float)oldW};
 }
-void MyImage::gaussianBlur() {
-    cout << "Advanced FEature 2" << endl;
+void MyImage::advancedFeature2() {
+    cout << "Gaussian Blur" << endl;
 }
-void MyImage::mirrorImage() {
-    cout << "Advanced Feature 3" << endl;
+void MyImage::advancedFeature3() {
+    cout << "Mirror Image" << endl;
 }
