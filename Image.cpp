@@ -257,7 +257,15 @@ void MyImage::advancedFeature1() {
     this->size = {(float)oldH, (float)oldW};
 }
 void MyImage::advancedFeature2() {
-    cout << "Gaussian Blur" << endl;
+    cout << "4 bit image" << endl;
+    for (int y = 0; y < this->size.y; y++) {
+        for (int x = 0; x < this->size.x; x++) {
+            int pix = (y*this->size.x) + x;
+            this->pixels[pix].r = this->pixels[pix].r / 16;
+            this->pixels[pix].g = this->pixels[pix].g / 16;
+            this->pixels[pix].b = this->pixels[pix].b / 16;
+        }
+    }
 }
 void MyImage::advancedFeature3() {
     cout << "Mirror Image" << endl;
