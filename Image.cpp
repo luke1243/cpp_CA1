@@ -204,13 +204,37 @@ void MyImage::filterBlue() {
 
 void MyImage::greyScale() {
     cout << "Filter Greyscale" << endl;
+    for (int y = 0; y < this->size.y; y++) {
+        for (int x = 0; x < this->size.x; x++) {
+            int pix = (y*this->size.x) + x;
+            this->pixels[pix].r = this->pixels[pix].r;
+            this->pixels[pix].g = this->pixels[pix].g;
+            this->pixels[pix].b = this->pixels[pix].b;
+        }
+    }
 }
 
 void MyImage::flipHorizontal() {
     cout << "Flip Horizontal" << endl;
+    for (int y = 0; y < this->size.y; y++) {
+        for (int x = 0; x < this->size.x; x++) {
+            int pix = (y*this->size.x) + x;
+            this->pixels[pix].r = this->pixels[pix].r;
+            this->pixels[pix].g = this->pixels[pix].g;
+            this->pixels[pix].b = this->pixels[pix].b;
+        }
+    }
 }
 void MyImage::flipVertical() {
     cout << "Flip Vertical" << endl;
+    for (int y = 0; y < this->size.y; y++) {
+        for (int x = 0; x < this->size.x; x++) {
+            int pix = (y*this->size.x) + x;
+            this->pixels[pix].r = this->pixels[pix].r;
+            this->pixels[pix].g = this->pixels[pix].g;
+            this->pixels[pix].b = this->pixels[pix].b;
+        }
+    }
 }
 void MyImage::advancedFeature1() {
     cout << "Advanced Feature 1" << endl;
@@ -221,4 +245,6 @@ void MyImage::advancedFeature2() {
 void MyImage::advancedFeature3() {
     cout << "Advanced Feature 3" << endl;
 }
+
+
 
