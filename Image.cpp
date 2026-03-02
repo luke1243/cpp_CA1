@@ -238,12 +238,12 @@ void MyImage::flipVertical() {
         }
     }
 }
-void MyImage::advancedFeature1() {
+void MyImage::rotate90() {
     cout << "Advanced Feature 1" << endl;
 }
-void MyImage::advancedFeature2() {
+void MyImage::gaussianBlur() {
     cout << "Advanced FEature 2" << endl;
 }
-void MyImage::advancedFeature3() {
+void MyImage::mirrorImage() {
     cout << "Advanced Feature 3" << endl;
 }
