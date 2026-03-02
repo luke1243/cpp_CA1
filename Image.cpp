@@ -240,21 +240,21 @@ void MyImage::flipVertical() {
 }
 void MyImage::advancedFeature1() {
     cout << "Rotate 90" << endl;
-    int oldW = (int)this->size.x;
-    int oldH = (int)this->size.y;
-    vector<RGB> rotatedPixels(oldW * oldH);
+    int oldWidth = (int)this->size.x;
+    int oldHeight = (int)this->size.y;
+    vector<RGB> rotatedPixels(oldWidth * oldHeight);
 
-    for (int y = 0; y < oldH; y++) {
-        for (int x = 0; x < oldW; x++) {
-            int oldIdx = (y * oldW) + x;
-            int newX = oldH - 1 - y;
+    for (int y = 0; y < oldHeight; y++) {
+        for (int x = 0; x < oldWidth; x++) {
+            int oldIdx = (y * oldWidth) + x;
+            int newX = oldHeight - 1 - y;
             int newY = x;
-            int newIdx = (newY * oldH) + newX;
+            int newIdx = (newY * oldHeight) + newX;
             rotatedPixels[newIdx] = this->pixels[oldIdx];
         }
     }
     this->pixels = rotatedPixels;
-    this->size = {(float)oldH, (float)oldW};
+    this->size = {(float)oldHeight, (float)oldWidth};
 }
 void MyImage::advancedFeature2() {
     cout << "4 bit image" << endl;
@@ -269,4 +269,12 @@ void MyImage::advancedFeature2() {
 }
 void MyImage::advancedFeature3() {
     cout << "Mirror Image" << endl;
+    int width = (int)this->size.x;
+    for (int y = 0; y < this->size.y; y++) {
+        for (int x = 0; x < width / 2; x++) {
+            int leftPix = (y * width) + x;
+            int rightPix = (y * width) + (width - 1 - x);
+            this->pixels[rightPix] = this->pixels[leftPix];
+        }
+    }
 }
