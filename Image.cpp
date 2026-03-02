@@ -239,7 +239,22 @@ void MyImage::flipVertical() {
     }
 }
 void MyImage::rotate90() {
-    cout << "Advanced Feature 1" << endl;
+    cout << "Rotate 90" << endl;
+    int oldW = (int)this->size.x;
+    int oldH = (int)this->size.y;
+    vector<RGB> rotatedPixels(oldW * oldH);
+
+    for (int y = 0; y < oldH; y++) {
+        for (int x = 0; x < oldW; x++) {
+            int oldIdx = (y * oldW) + x;
+            int newX = oldH - 1 - y;
+            int newY = x;
+            int newIdx = (newY * oldH) + newX;
+            rotatedPixels[newIdx] = this->pixels[oldIdx];
+        }
+    }
+    this->pixels = rotatedPixels;
+    this->size = {(float)oldH, (float)oldW};
 }
 void MyImage::gaussianBlur() {
     cout << "Advanced FEature 2" << endl;
