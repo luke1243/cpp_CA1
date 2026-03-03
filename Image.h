@@ -48,6 +48,7 @@ public:
     void filterGreen();
     void filterBlue();
     void greyScale();
+    void invertColours();
 };
 
 
