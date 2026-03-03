@@ -278,3 +278,17 @@ void MyImage::advancedFeature3() {
         }
     }
 }
+
+    // Additional feature
+void MyImage::invertColours() {
+    cout << "Invert Colours" << endl;
+    for (int y = 0; y < this->size.y; y++) {
+        for (int x = 0; x < this->size.x; x++) {
+            int pix = (y*this->size.x) + x;
+            this->pixels[pix].r = 255 - this->pixels[pix].r;
+            this->pixels[pix].g = 255 - this->pixels[pix].g;
+            this->pixels[pix].b = 255 - this->pixels[pix].b;
+        }
+    }
+}
+}
